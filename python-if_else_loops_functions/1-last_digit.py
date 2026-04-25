@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 import random
+
+
 number = random.randint(-10000, 10000)
 
-# The last digit is usually number % 10, but in Python,
-# % on a negative number returns a positive result that 
-# maintains the cyclic pattern (e.g., -1 % 10 = 9).
-# To get the absolute last digit as specified in most C-style 
-# logic tasks, we use the absolute value then restore the sign.
+# Calculate the last digit while preserving the sign
+# PEP 8 suggests spaces around operators for readability
 last_digit = abs(number) % 10
 if number < 0:
     last_digit = -last_digit
@@ -19,3 +18,4 @@ elif last_digit == 0:
     print("and is 0")
 else:
     print("and is less than 6 and not 0")
+
