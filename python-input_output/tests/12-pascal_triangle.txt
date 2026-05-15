@@ -1,0 +1,24 @@
+The ``pascal_triangle`` module
+==============================
+
+Using ``pascal_triangle``
+-------------------------
+
+Import the function for testing:
+    >>> pascal_triangle = __import__("pascal_triangle").pascal_triangle
+
+Test Case 1: Standard positive integer input (n = 5)
+    >>> pascal_triangle(5)
+    [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]
+
+Test Case 2: Smallest valid size input (n = 1)
+    >>> pascal_triangle(1)
+    [[1]]
+
+Test Case 3: Zero boundary case input (n = 0)
+    >>> pascal_triangle(0)
+    []
+
+Test Case 4: Negative integer input (n = -5)
+    >>> pascal_triangle(-5)
+    []
