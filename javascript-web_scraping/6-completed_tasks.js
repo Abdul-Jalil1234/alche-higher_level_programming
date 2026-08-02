@@ -17,7 +17,5 @@ request(url, (error, response, body) => {
     }
   });
 
-  Object.keys(completedCount).forEach((userId) => {
-    console.log(`${userId}: ${completedCount[userId]}`);
-  });
+  console.log(completedCount);
 });
