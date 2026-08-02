@@ -1,12 +1,15 @@
 #!/usr/bin/node
-const request = require('request');
+// Fetches and prints the title of a Star Wars movie based on a given episode ID
 
-const url = 'https://alx-tools.com' + process.argv[2];
+const request = require('request');
+const episodeId = process.argv[2];
+const url = `https://alx-tools.com{episodeId}`;
 
 request(url, (error, response, body) => {
   if (error) {
-    console.log(error);
+    console.error(error);
   } else {
-    console.log(JSON.parse(body).title);
+    const movieData = JSON.parse(body);
+    console.log(movieData.title);
   }
 });
