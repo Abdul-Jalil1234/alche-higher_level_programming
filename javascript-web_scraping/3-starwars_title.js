@@ -1,15 +1,14 @@
 #!/usr/bin/node
-// Fetches and prints the title of a Star Wars movie based on a given episode ID
-
 const request = require('request');
-const episodeId = process.argv[2];
-const url = `https://alx-tools.com{episodeId}`;
-
+ 
+const movieId = process.argv[2];
+const url = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
+ 
 request(url, (error, response, body) => {
   if (error) {
-    console.error(error);
-  } else {
-    const movieData = JSON.parse(body);
-    console.log(movieData.title);
+    console.log(error);
+    return;
   }
+  const movie = JSON.parse(body);
+  console.log(movie.title);
 });
