@@ -1,5 +1,6 @@
 #!/usr/bin/node
 const request = require('request');
+
 const url = process.argv;
 
 request(url, (error, response, body) => {
@@ -8,12 +9,8 @@ request(url, (error, response, body) => {
     return;
   }
   const films = JSON.parse(body).results;
-  let count = 0;
-
-  for (const film of films) {
-    if (film.characters.includes('https://alx-tools.com')) {
-      count++;
-    }
-  }
+  const count = films.filter((film) =>
+    film.characters.some((character) => character.endsWith('/18/'))
+  ).length;
   console.log(count);
 });
