@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const request = require('request');
 
-const url = process.argv;
+const url = process.argv[2];
 
 request(url, (error, response, body) => {
   if (error) {
@@ -9,8 +9,8 @@ request(url, (error, response, body) => {
     return;
   }
   const films = JSON.parse(body).results;
-  const count = films.filter((film) =>
-    film.characters.some((character) => character.endsWith('/18/'))
-  ).length;
+  const count = films.filter((film) => film.characters.some(
+    (character) => character.endsWith('/18/')
+  )).length;
   console.log(count);
 });
